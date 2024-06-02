@@ -1,0 +1,138 @@
+<mvc:View controllerName="com.tushar.project1.controller.App" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:t="sap.ui.table"
+	xmlns:core="sap.ui.core"
+	xmlns="sap.uxap"
+	xmlns:layout="sap.ui.layout"
+	xmlns:m="sap.m"
+
+	height="100%">
+	<ObjectPageLayout id="ObjectPageLayout" showTitleInHeaderContent="true" upperCaseAnchorBar="false">
+		<headerTitle>
+				<ObjectPageDynamicHeaderTitle>
+					<expandedHeading>
+						<m:Title text="TICKET HANDLER" wrapping="true"/>
+					</expandedHeading>
+
+					<snappedHeading>
+						<m:FlexBox fitContainer="true" alignItems="Center">
+							
+						</m:FlexBox>
+					</snappedHeading>
+
+					<expandedContent>
+						<m:Text text="TICKET HANDLER"/>
+					</expandedContent>
+
+					<snappedContent>
+						<m:Text text="TICKET HANDLER"/>
+					</snappedContent>
+
+					<snappedTitleOnMobile>
+						<m:Title text="TICKET HANDLER"/>
+					</snappedTitleOnMobile>
+
+					<actions>
+						
+						<m:OverflowToolbarButton icon="sap-icon://action" type="Transparent" text="Share" tooltip="action"/>
+					</actions>
+				</ObjectPageDynamicHeaderTitle>
+			</headerTitle>
+
+		<headerContent>
+			<m:FlexBox wrap="Wrap">
+				
+				<layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
+				<m:SearchField width="60%" search=".onSearch" />
+				
+
+
+					
+				</layout:VerticalLayout>
+				<layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
+						<layout:layoutData>
+							<ObjectPageHeaderLayoutData visibleS="false" visibleM="false"/>
+						</layout:layoutData>
+						
+						
+				</layout:VerticalLayout>
+			</m:FlexBox>
+		</headerContent>
+
+		<sections>
+			<ObjectPageSection titleUppercase="false" title="">
+				<subSections>
+					<ObjectPageSubSection title="" titleUppercase="false">
+						<blocks>
+				<t:Table
+					id="table"
+					rows="{/ProductCollection}"
+					selectionMode="MultiToggle"
+					setEnableGrouping="true"
+					ariaLabelledBy="title">
+				<t:extension>
+					<m:OverflowToolbar style="Clear">
+						<m:Title id="title" text="Products"/>
+						<m:ToolbarSpacer/>
+						<m:Label text="SelectionMode:"/>
+						<m:Select id="select" selectedKey="MultiToggle" change="onSelectionModeChange">
+							<m:items>
+								<core:Item key="MultiToggle" text="MultiToggle"/>
+								<core:Item key="Single" text="Single"/>
+								<core:Item key="None" text="None"/>
+							</m:items>
+						</m:Select>
+						<m:ToggleButton text="Toggle Highlights" pressed="true" press="onHighlightToggle"/>
+						<m:ToggleButton text="Toggle Alternate Row Colors" press="onAlternateToggle"/>
+					</m:OverflowToolbar>
+				</t:extension>
+				<t:rowSettingsTemplate>
+					<t:RowSettings highlight="{Status}" highlightText="{StatusText}"/>
+				</t:rowSettingsTemplate>
+				<t:columns>
+					<t:Column sortProperty="STATUS" filterProperty="Status">
+						<m:Label text="Status"/>
+						<t:template>
+							<m:Text text="" wrapping="false"/>
+						</t:template>
+					</t:Column>
+					<t:Column>
+						<m:Label text="TICKET ID"/>
+						<t:template>
+							<m:Text text="" wrapping="false"/>
+						</t:template>
+					</t:Column>
+					<t:Column>
+						<m:Label text="CREATION DATE"/>
+						<t:template>
+							<m:Text text="" wrapping="false"/>
+						</t:template>
+					</t:Column>
+					<t:Column>
+						<m:Label text="CREATED BY"/>
+						<t:template>
+							<m:Text text="" wrapping="false"/>
+						</t:template>
+					</t:Column>
+					<t:Column>
+						<m:Label text="PRIORITY"/>
+						<t:template>
+							<m:Text text="" wrapping="false"/>
+						</t:template>
+					</t:Column>
+					<t:Column hAlign="End">
+						<m:Label text="ASSIGNED TO"/>
+						<t:template>
+							<m:Text text="" wrapping="false"/>
+						</t:template>
+					</t:Column>
+				</t:columns>
+			</t:Table>
+							
+						</blocks>
+					</ObjectPageSubSection>
+					
+				</subSections>
+			</ObjectPageSection>
+		</sections>
+	</ObjectPageLayout>
+</mvc:View>

@@ -42,7 +42,7 @@
 			<m:FlexBox wrap="Wrap">
 				
 				<layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
-				<m:SearchField width="60%" search=".onSearch" />
+				<m:SearchField id="SF" width="60%" search="onSearch" />
 					
 				<m:Label text="status :" labelFor="selectstatus"/>
 					<m:Select

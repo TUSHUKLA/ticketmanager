@@ -1,8 +1,9 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
-    "sap/ui/model/json/JSONModel"
+    "sap/ui/model/json/JSONModel",
+    "sap/m/MessageToast"
 ],
-function (Controller,JSONModel) {
+function (Controller,JSONModel,MessageToast) {
     "use strict";
 
     return Controller.extend("com.tushar.project1.controller.View1", {
@@ -116,6 +117,16 @@ function (Controller,JSONModel) {
 
             
 
+        },
+        onSearch:function(){
+            let s= this.query().byId("SF");
+            let page=this.getview().byid("ObjectPageLayout");
+            if(s==page)
+            {
+
+            }
+
         }
+
     });
 });

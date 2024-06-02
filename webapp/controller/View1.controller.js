@@ -3,7 +3,7 @@ sap.ui.define([
     "sap/ui/model/json/JSONModel",
     "sap/m/MessageToast"
 ],
-function (Controller,JSONModel,MessageToast) {
+function (Controller,JSONModel, MessageToast) {
     "use strict";
 
     return Controller.extend("com.tushar.project1.controller.View1", {
@@ -11,7 +11,7 @@ function (Controller,JSONModel,MessageToast) {
             var tickets = [ 
                 {
                 "status": "resolved",
-                "ticketid" : 1,
+                "ticketid" : "0001",
                 "creation date":  "2024-06-01",
                 "createdby": "Tushar",
                 "priority": "high",
@@ -20,7 +20,7 @@ function (Controller,JSONModel,MessageToast) {
             },
             {
                 "status": "resolved",
-                "ticket id" : 1,
+                "ticket id" : "0001",
                 "creationdate":"2024-06-0",
                 "createdby": "Tushar",
                 "priority": "high",
@@ -29,7 +29,7 @@ function (Controller,JSONModel,MessageToast) {
             },
             {
                 "status": "resolved",
-                "ticketid" : 1,
+                "ticketid" : "0001",
                 "creationdate": "2024-06-01",
                 "createdby": "Tushar",
                 "priority": "high",
@@ -38,7 +38,7 @@ function (Controller,JSONModel,MessageToast) {
             },
             {
                 "status": "resolved",
-                "ticketid" : 1,
+                "ticketid" : "0001",
                 "creationdate": "2024-06-01",
                 "createdby": "Tushar",
                 "priority": "high",
@@ -47,7 +47,7 @@ function (Controller,JSONModel,MessageToast) {
             },
             {
                 "status": "resolved",
-                "ticketid" : 1,
+                "ticketid" : "0001",
                 "creationdate": "2024-06-01",
                 "createdby": "Tushar",
                 "priority": "high",
@@ -56,7 +56,7 @@ function (Controller,JSONModel,MessageToast) {
             },
             {
                 "status": "resolved",
-                "ticketid" : 1,
+                "ticketid" : "0001",
                 "creation date": "2024-06-01",
                 "createdby": "Tushar",
                 "priority": "high",
@@ -65,7 +65,7 @@ function (Controller,JSONModel,MessageToast) {
             },
             {
                 "status": "resolved",
-                "ticketid" : 1,
+                "ticketid" : "0001",
                 "creationdate": "2024-06-01",
                 "createdby": "Tushar",
                 "priority": "high",
@@ -74,7 +74,7 @@ function (Controller,JSONModel,MessageToast) {
             },
             {
                 "status": "resolved",
-                "ticketid" : 1,
+                "ticketid" : "0001",
                 "creationdate": "2024-06-01",
                 "createdby": "Tushar",
                 "priority": "high",
@@ -83,7 +83,7 @@ function (Controller,JSONModel,MessageToast) {
             },
             {
                 "status": "resolved",
-                "ticketid" : 1,
+                "ticketid" : "0001",
                 "creationdate": "2024-06-01",
                 "createdby": "Tushar",
                 "priority": "high",
@@ -92,7 +92,7 @@ function (Controller,JSONModel,MessageToast) {
             },
             {
                 "status": "resolved",
-                "ticketid" : 1,
+                "ticketid" : "0001",
                 "creationdate": "2024-06-01",
                 "createdby": "Tushar",
                 "priority": "high",
@@ -101,7 +101,7 @@ function (Controller,JSONModel,MessageToast) {
             },
             {
                 "status": "resolved",
-                "ticketid" : 1,
+                "ticketid" : "0001",
                 "creationdate": "2024-06-01",
                 "created by": "Tushar",
                 "priority": "high",
@@ -113,11 +113,9 @@ function (Controller,JSONModel,MessageToast) {
             
             let oTicket = new JSONModel(); 
             oTicket.setData(tickets); 
-            this.getView().byId("table").setModel(oTicket,"T");
-
-            
-
+            this.getView().byId("table").setModel(oTicket,"T");            
         },
+
         onSearch:function(){
             let s= this.query().byId("SF");
             let page=this.getview().byid("ObjectPageLayout");

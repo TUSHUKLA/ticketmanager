@@ -43,11 +43,80 @@
 				
 				<layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
 				<m:SearchField width="60%" search=".onSearch" />
-				
-
-
 					
+				<m:Label text="status :" labelFor="selectstatus"/>
+					<m:Select
+					id="selectstatus"
+					width="60%"
+					forceSelection="false"
+					selectedKey="{/}"
+					items="{
+						path: '',
+						sorter: { path: '' }
+					}">
+					<core:Item key="{}" text="{}" />
+				</m:Select>
 				</layout:VerticalLayout>
+				<layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
+				<m:Label text="TICKET ID :" labelFor="TI" />
+		        <m:Input
+					id="TI"
+					placeholder="ticket id"
+					showSuggestion="true"
+					showValueHelp="true"
+					valueHelpRequest=".onValueHelpRequest"
+					m:suggestionItems="">
+						<m:suggestionItems>
+							<core:Item text="" />
+						</m:suggestionItems>
+		        </m:Input>
+		<m:Label text="CREATION DATE :" labelFor="DTP1"/>
+		<m:DateTimePicker
+			id="DTP1"
+			placeholder="Enter Date"
+			change="handleChange"
+			class="sapUiSmallMarginBottom"/>
+
+		<m:Label text="CREATED BY :" labelFor="CB" />
+		<m:Input
+			id="CB"
+			placeholder="Enter"
+			showSuggestion="true"
+			showValueHelp="true"
+			valueHelpRequest=".onValueHelpRequest"
+			m:suggestionItems="">
+			<m:suggestionItems>
+				<core:Item text="" />
+			</m:suggestionItems>
+		</m:Input>
+		</layout:VerticalLayout>
+		<layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
+		<m:Label text="PRIORITY :" labelFor="TP"/>
+					<m:Select
+					id="TP"
+					width="60%"
+					forceSelection="false"
+					selectedKey=""
+					items="{
+						path: '',
+						sorter: { path: '' }
+					}">
+					<core:Item key="{}" text="{}" />
+				</m:Select>
+				<m:Label text="ASSIGNED TO :" labelFor="AT" />
+		<m:Input
+			id="AT"
+			placeholder="Enter"
+			showSuggestion="true"
+			showValueHelp="true"
+			valueHelpRequest=".onValueHelpRequest"
+			m:suggestionItems="">
+			<m:suggestionItems>
+				<core:Item text="" />
+			</m:suggestionItems>
+		</m:Input>
+		</layout:VerticalLayout>
+		
 				<layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
 						<layout:layoutData>
 							<ObjectPageHeaderLayoutData visibleS="false" visibleM="false"/>
@@ -62,14 +131,16 @@
 			<ObjectPageSection titleUppercase="false" title="">
 				<subSections>
 					<ObjectPageSubSection title="" titleUppercase="false">
-						<blocks>
+				<blocks>
 				<t:Table
 					id="table"
-					rows="{/ProductCollection}"
+					rows="{T>/}"
 					selectionMode="MultiToggle"
 					setEnableGrouping="true"
-					ariaLabelledBy="title">
-				<t:extension>
+					
+					ariaLabelledBy="title"
+					 >
+				<!-- <t:extension>
 					<m:OverflowToolbar style="Clear">
 						<m:Title id="title" text="Products"/>
 						<m:ToolbarSpacer/>
@@ -84,45 +155,45 @@
 						<m:ToggleButton text="Toggle Highlights" pressed="true" press="onHighlightToggle"/>
 						<m:ToggleButton text="Toggle Alternate Row Colors" press="onAlternateToggle"/>
 					</m:OverflowToolbar>
-				</t:extension>
+				</t:extension> -->
 				<t:rowSettingsTemplate>
-					<t:RowSettings highlight="{Status}" highlightText="{StatusText}"/>
+					<t:RowSettings highlight="{T>status}" highlightText="{T>status}"/>
 				</t:rowSettingsTemplate>
 				<t:columns>
 					<t:Column sortProperty="STATUS" filterProperty="Status">
 						<m:Label text="Status"/>
 						<t:template>
-							<m:Text text="" wrapping="false"/>
+							<m:Text text="{T>status}" wrapping="false"/>
 						</t:template>
 					</t:Column>
 					<t:Column>
 						<m:Label text="TICKET ID"/>
 						<t:template>
-							<m:Text text="" wrapping="false"/>
+							<m:Text text="{T>ticketid}" wrapping= "false"/>
 						</t:template>
 					</t:Column>
 					<t:Column>
 						<m:Label text="CREATION DATE"/>
 						<t:template>
-							<m:Text text="" wrapping="false"/>
+							<m:Text text="{T>creationdate}" wrapping="false"/>
 						</t:template>
 					</t:Column>
 					<t:Column>
 						<m:Label text="CREATED BY"/>
 						<t:template>
-							<m:Text text="" wrapping="false"/>
+							<m:Text text="{T>createdby}" wrapping="false"/>
 						</t:template>
 					</t:Column>
 					<t:Column>
 						<m:Label text="PRIORITY"/>
 						<t:template>
-							<m:Text text="" wrapping="false"/>
+							<m:Text text="{T>priority}" wrapping="false"/>
 						</t:template>
 					</t:Column>
 					<t:Column hAlign="End">
 						<m:Label text="ASSIGNED TO"/>
 						<t:template>
-							<m:Text text="" wrapping="false"/>
+							<m:Text text="{T>assignedto}" wrapping="false"/>
 						</t:template>
 					</t:Column>
 				</t:columns>

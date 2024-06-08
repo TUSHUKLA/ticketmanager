@@ -37,35 +37,46 @@
 					<m:SearchField id="SF" width="100%" search="onSearch" />
 				</layout:VerticalLayout> -->
 			   <layout:VerticalLayout class="sapUiSmallMarginBeginEnd">		
-				 <m:Label text="Status" labelFor="idStatus"/>
+				 <m:Label text="STATUS :" labelFor="idStatus"/>
 				 <m:Select
 					id="idStatus"
-					width="100px"
+					width="150px"
 					forceSelection="false"
-					selectedKey=""
-					items="{
-						path: '',
-						sorter: { path: '' }
-					}">
-					<core:Item key="{}" text="{}" />
+					selectedKey="Resolved">
+				<m:items>
+					<core:ListItem  text="Resolved" />
+					<core:ListItem  text="Unresolved"/>
+				</m:items>
 				</m:Select>
+				<m:Label text="ASSIGNED TO :" labelFor="AT" />
+				<m:Input
+					id="AT"
+					placeholder="Enter"
+					showSuggestion="true"
+					showValueHelp="true"
+					valueHelpRequest=".onValueHelpRequestAssign"
+					m:suggestionItems="{T>assignedto}">
+					<m:suggestionItems>
+						<core:Item text="{T>assignedto}" />
+					</m:suggestionItems>
+				</m:Input>
 				</layout:VerticalLayout>
 				<layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
-				<m:Label text="TICKET ID" labelFor="TI" />
+				<m:Label text="TICKET ID :" labelFor="TI" />
 		        <m:Input
 					id="TI"
 					placeholder="ticket id"
 					showSuggestion="true"
 					showValueHelp="true"
-					valueHelpRequest=".onValueHelpRequest"
-					m:suggestionItems="">
+					valueHelpRequest=".onValueHelpRequestid"
+					m:suggestionItems="{T>ticketid}">
 						<m:suggestionItems>
-							<core:Item text="" />
+							<core:Item text="{T>ticketid}" />
 						</m:suggestionItems>
 		        </m:Input>
 				</layout:VerticalLayout>
 		<layout:VerticalLayout class="sapUiSmallMarginBeginEnd">		
-		<m:Label text="CREATION DATE" labelFor="DTP1"/>
+		<m:Label text="CREATION DATE :" labelFor="DTP1"/>
 		<m:DateTimePicker
 			id="DTP1"
 			placeholder="Enter Date"
@@ -73,47 +84,43 @@
 			class="sapUiSmallMarginBottom"/>
 		</layout:VerticalLayout>
 		<layout:VerticalLayout class="sapUiSmallMarginBeginEnd">		
-		<m:Label text="CREATED BY" labelFor="CB" />
+		<m:Label text="CREATED BY :" labelFor="CB" />
 		<m:Input
 			id="CB"
 			placeholder="Enter"
 			showSuggestion="true"
 			showValueHelp="true"
-			valueHelpRequest=".onValueHelpRequest"
-			m:suggestionItems="">
+			valueHelpRequest=".onValueHelpRequestcreate"
+			m:suggestionItems="{T>createdby}">
 			<m:suggestionItems>
-				<core:Item text="" />
+				<core:Item text="{T>createdby}" />
 			</m:suggestionItems>
 		</m:Input>
 		</layout:VerticalLayout>
 		<layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
-		<m:Label text="PRIORITY" labelFor="TP"/>
+		<m:Label text="PRIORITY :" labelFor="TP"/>
 		<m:Select
 			id="TP"
-			width="100%"
+			width="150px"
 			forceSelection="false"
-			selectedKey=""
-			items="{
-				path: '',
-				sorter: { path: '' }
-			}">
-			<core:Item key="{}" text="{}" />
+			selectedKey="high"
+			
+		<m:items>
+			<core:ListItem  text="high" />
+			<core:ListItem  text="verry high" />
+			<core:ListItem  text="medium" />
+			<core:ListItem  text="low" />
+			<core:ListItem  text="verry low" />
+		</m:items>
 		</m:Select>
 		</layout:VerticalLayout>
-		<layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
-		<m:Label text="ASSIGNED TO" labelFor="AT" />
-		<m:Input
-			id="AT"
-			placeholder="Enter"
-			showSuggestion="true"
-			showValueHelp="true"
-			valueHelpRequest=".onValueHelpRequest"
-			m:suggestionItems="">
-			<m:suggestionItems>
-				<core:Item text="" />
-			</m:suggestionItems>
-		</m:Input>
-		</layout:VerticalLayout>
+		
+		</m:FlexBox>
+		<m:FlexBox wrap="Wrap">
+		<layout:HorizontalLayout class="sapUiContentPadding" >
+		<m:Button text="GO" press="onPress" />
+		<m:Button text="ASSIGN" press="onPress" />
+		</layout:HorizontalLayout>
 		</m:FlexBox>
 		</headerContent>
 

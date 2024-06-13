@@ -1,4 +1,5 @@
-<mvc:View controllerName="com.tushar.project1.controller.View1" xmlns:mvc="sap.ui.core.mvc"
+<mvc:View controllerName="com.tushar.project1.controller.View1"
+ xmlns:mvc="sap.ui.core.mvc"
 	xmlns:t="sap.ui.table"
 	xmlns:core="sap.ui.core"
 	xmlns="sap.uxap"
@@ -40,7 +41,7 @@
 				 <m:Label text="STATUS :" labelFor="idStatus"/>
 				 <m:Select
 					id="idStatus"
-					width="150px"
+					width="170px"
 					forceSelection="false"
 					selectedKey="Resolved">
 				<m:items>
@@ -54,7 +55,7 @@
 					placeholder="Enter"
 					showSuggestion="true"
 					showValueHelp="true"
-					valueHelpRequest=".onValueHelpRequestAssign"
+					valueHelpRequest=".onValueHelpRequestassign"
 					m:suggestionItems="">
 					<m:suggestionItems>
 						<core:Item text="" />
@@ -101,9 +102,9 @@
 		<m:Label text="PRIORITY :" labelFor="TP"/>
 		<m:Select
 			id="TP"
-			width="150px"
+			width="170px"
 			forceSelection="false"
-			selectedKey="high"
+			selectedKey="high">
 			
 		<m:items>
 			<core:ListItem  text="high" />
@@ -133,7 +134,7 @@
 					id="table"
 					rows="{T>/}"
 					selectionMode="MultiToggle"
-					setEnableGrouping="true"
+					
 					
 					ariaLabelledBy="title"
 					 >

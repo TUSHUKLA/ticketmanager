@@ -107,7 +107,7 @@ function (Controller,JSONModel, MessageToast,Fragment,Filter,FilterOperator) {
             
             const oTicket = new JSONModel(); 
             oTicket.setData(tickets); 
-            this.getView().byId("table").setModel(oTicket,"T");            
+            this.getView().setModel(oTicket,"T");            
         },
 
         onValueHelpRequestid: function (oEvent) {
